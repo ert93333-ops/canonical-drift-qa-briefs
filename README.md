@@ -22,7 +22,7 @@ Billing is not connected. The MVP uses early-access, demo-request, and purchase-
 
 - Landing page: https://ert93333-ops.github.io/canonical-drift-qa-briefs/
 - Checklist: https://ert93333-ops.github.io/canonical-drift-qa-briefs/canonical-drift-qa-checklist.html
-- GitHub Gist checklist: pending
+- GitHub Gist checklist: https://gist.github.com/ert93333-ops/3f3cd460650a3280978d5cef689a925f
 
 ## Marketing Test Links
 
