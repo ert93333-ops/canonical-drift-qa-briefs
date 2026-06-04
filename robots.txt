@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ert93333-ops.github.io/canonical-drift-qa-briefs/sitemap.xml

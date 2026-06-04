@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Canonical Drift QA Briefs | Canonical tag QA checklist</title>
+    <meta
+      name="description"
+      content="Paste page URLs, canonical tags, sitemap rows, and redirect notes to catch missing canonicals, URL mismatches, staging URLs, cross-domain risks, and sitemap disagreement before launch."
+    >
+    <link rel="canonical" href="https://ert93333-ops.github.io/canonical-drift-qa-briefs/">
+    <meta property="og:title" content="Canonical Drift QA Briefs">
+    <meta property="og:description" content="Catch canonical URL drift before migrations and launch pages go live.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ert93333-ops.github.io/canonical-drift-qa-briefs/">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body data-product="Canonical Drift QA Briefs">
+    <a class="skip-link" href="#workflow">Skip to canonical QA</a>
+
+    <header class="site-header" data-header>
+      <div class="shell header-inner">
+        <a class="brand" href="index.html" aria-label="Canonical Drift QA Briefs home">
+          <span class="brand-mark" aria-hidden="true">CD</span>
+          <span>Canonical Drift QA Briefs</span>
+        </a>
+        <nav class="nav" aria-label="Primary navigation">
+          <a href="#workflow">Auditor</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#waitlist">Early access</a>
+          <a href="canonical-drift-qa-checklist.html">Checklist</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero section">
+        <div class="shell hero-grid">
+          <div class="hero-copy reveal">
+            <p class="eyebrow">Canonical tag QA checklist</p>
+            <h1>Catch canonical drift before launch.</h1>
+            <p class="hero-subtitle">
+              Paste page URLs, canonical tags, sitemap rows, and redirect notes to flag
+              missing canonicals, mismatches, staging URLs, cross-domain risks, and sitemap disagreement.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="#workflow" data-track-cta="hero_audit">Audit sample canonical rows</a>
+              <a class="button secondary" href="#waitlist" data-track-cta="hero_waitlist">Request early access</a>
+            </div>
+            <dl class="signal-row" aria-label="Launch facts">
+              <div>
+                <dt>No live crawl</dt>
+                <dd>Paste-in static MVP</dd>
+              </div>
+              <div>
+                <dt>Canonical QA</dt>
+                <dd>URL, sitemap, redirect notes</dd>
+              </div>
+              <div>
+                <dt>$59/mo</dt>
+                <dd>Agency hypothesis</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="product-preview reveal" aria-label="Product preview">
+            <div class="preview-header">
+              <span class="status-dot"></span>
+              <span>migration canonical QA</span>
+            </div>
+            <div class="preview-grid">
+              <div class="url-preview">
+                <p>/products/launch-kit</p>
+                <p>canonical: staging.example.com</p>
+                <p>/pricing -> /pricing/</p>
+                <p class="warn-line">sitemap disagreement</p>
+              </div>
+              <div class="brief-preview">
+                <p class="brief-label">QA result</p>
+                <strong>Fix before launch</strong>
+                <p>Staging canonicals, protocol drift, and sitemap disagreement need owner review before release.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section band" id="workflow" aria-labelledby="workflow-title">
+        <div class="shell">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Core workflow</p>
+            <h2 id="workflow-title">Paste URL rows. Get a canonical drift QA brief.</h2>
+            <p>
+              This MVP analyzes pasted rows in your browser. It does not crawl URLs, use Search Console,
+              call URL Inspection, or guarantee search-engine-selected canonical outcomes.
+            </p>
+          </div>
+
+          <div class="auditor-layout">
+            <form class="auditor-panel reveal" id="auditor-form">
+              <div class="field-row">
+                <label for="canonical-input">Page URL and canonical rows</label>
+                <button class="text-button" type="button" id="load-sample" data-track-cta="load_sample">
+                  Load sample rows
+                </button>
+              </div>
+              <textarea
+                id="canonical-input"
+                aria-describedby="privacy-note"
+                placeholder="https://example.com/page | https://example.com/page | self canonical checked"
+              ></textarea>
+
+              <label for="sitemap-input">Optional sitemap rows</label>
+              <textarea
+                id="sitemap-input"
+                class="short-textarea"
+                placeholder="https://example.com/page&#10;https://example.com/pricing"
+              ></textarea>
+
+              <div class="form-grid compact-grid">
+                <label>
+                  Launch context
+                  <select id="launch-context">
+                    <option selected>Site migration</option>
+                    <option>CMS template release</option>
+                    <option>SaaS landing page launch</option>
+                    <option>Ecommerce category update</option>
+                    <option>Staging-to-production rollout</option>
+                  </select>
+                </label>
+                <label>
+                  Canonical owner
+                  <input id="canonical-owner" value="Technical SEO + frontend">
+                </label>
+                <label class="wide-field">
+                  Domain scope / redirect notes
+                  <textarea id="redirect-notes" class="short-textarea">Apex redirects to www. Staging and preview hosts should never appear in production canonicals. Trailing slash behavior is still being finalized.</textarea>
+                </label>
+              </div>
+
+              <p class="privacy-note" id="privacy-note">
+                Paste only public-safe or anonymized URL rows. This is launch QA guidance, not a guarantee of Google's selected canonical.
+              </p>
+              <div class="workflow-actions">
+                <button class="button primary" type="submit" id="generate-brief" data-track-cta="generate_brief">
+                  Generate canonical drift QA brief
+                </button>
+                <button class="button secondary" type="button" id="copy-brief" disabled>
+                  Copy brief
+                </button>
+              </div>
+              <p class="form-error" id="workflow-error" role="alert" aria-live="polite"></p>
+            </form>
+
+            <aside class="output-panel reveal" aria-labelledby="output-title">
+              <div class="output-header">
+                <div>
+                  <p class="eyebrow">Generated brief</p>
+                  <h3 id="output-title">No audit yet</h3>
+                </div>
+                <span class="confidence-pill" id="status-pill">Waiting</span>
+              </div>
+              <div class="brief-output empty" id="brief-output" aria-live="polite">
+                Load the sample or paste canonical rows to generate a canonical drift QA brief.
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="why-title">
+        <div class="shell">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Why this exists</p>
+            <h2 id="why-title">A canonical tag existing is not the same as canonical QA.</h2>
+          </div>
+          <div class="feature-grid">
+            <article class="feature-card reveal">
+              <h3>Catch drift</h3>
+              <p>Flag wrong domains, staging hosts, protocol mismatches, slash drift, and unexpected non-self canonicals.</p>
+            </article>
+            <article class="feature-card reveal">
+              <h3>Compare sitemap rows</h3>
+              <p>Check whether launch URLs and canonical targets appear in the sitemap rows you provide.</p>
+            </article>
+            <article class="feature-card reveal">
+              <h3>Copy the handoff</h3>
+              <p>Turn findings into a QA note for SEO, migration, CMS, frontend, and ecommerce owners.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section band" id="pricing" aria-labelledby="pricing-title">
+        <div class="shell">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Pricing hypothesis</p>
+            <h2 id="pricing-title">Reserve early access before billing is connected.</h2>
+            <p>Pricing is tested through demo requests and purchase intent while payments are unavailable.</p>
+          </div>
+          <div class="pricing-grid">
+            <article class="price-card reveal">
+              <p class="plan-name">Solo</p>
+              <p class="plan-price">$19<span>/month</span></p>
+              <p>For founders and in-house teams checking one or two launch surfaces.</p>
+              <button class="button secondary plan-button" type="button" data-plan="Solo - $19/month" data-track-cta="solo_plan">
+                Request Solo access
+              </button>
+            </article>
+            <article class="price-card featured-price reveal">
+              <p class="plan-name">Agency</p>
+              <p class="plan-price">$59<span>/month</span></p>
+              <p>For agencies and technical SEOs that need repeatable canonical QA reports.</p>
+              <button class="button primary plan-button" type="button" data-plan="Agency - $59/month" data-track-cta="agency_plan">
+                Request Agency access
+              </button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="waitlist" aria-labelledby="waitlist-title">
+        <div class="shell waitlist-layout">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Early access</p>
+            <h2 id="waitlist-title">Request the first usable build.</h2>
+            <p>This form stores locally and prepares a public-safe GitHub issue handoff.</p>
+          </div>
+
+          <form class="waitlist-form reveal" id="waitlist-form">
+            <div class="form-grid">
+              <label>
+                Work email
+                <input id="email" name="email" type="email" required value="canonical-smoke@example.invalid">
+              </label>
+              <label>
+                Role
+                <select id="role" name="role">
+                  <option>Technical SEO</option>
+                  <option>Migration agency</option>
+                  <option>Frontend developer</option>
+                  <option>SaaS founder</option>
+                  <option>Ecommerce operator</option>
+                </select>
+              </label>
+              <label>
+                Number of sites
+                <select id="site-count" name="site-count">
+                  <option>1 site</option>
+                  <option selected>2-10 sites</option>
+                  <option>11-50 sites</option>
+                  <option>50+ sites</option>
+                </select>
+              </label>
+              <label>
+                Launch context
+                <select id="launch-context-intent" name="launch-context-intent">
+                  <option selected>Site migration</option>
+                  <option>CMS template release</option>
+                  <option>SaaS landing page launch</option>
+                  <option>Ecommerce category update</option>
+                  <option>Staging-to-production rollout</option>
+                </select>
+              </label>
+              <label>
+                Plan interest
+                <select id="plan" name="plan">
+                  <option>Solo - $19/month</option>
+                  <option selected>Agency - $59/month</option>
+                </select>
+              </label>
+              <label>
+                Willingness to pay
+                <select id="budget" name="budget">
+                  <option>$19/month for one site</option>
+                  <option selected>$59/month for client QA</option>
+                  <option>$149/month for migration teams</option>
+                  <option>Not sure yet</option>
+                </select>
+              </label>
+              <label class="wide-field">
+                Biggest canonical QA pain
+                <textarea id="pain" name="pain" class="short-textarea">I need a repeatable client-safe check for staging canonicals, canonical mismatch, sitemap disagreement, and redirect drift before migrations go live.</textarea>
+              </label>
+            </div>
+            <label class="checkbox-row">
+              <input id="purchase-intent" type="checkbox" checked>
+              <span>This is a real purchase-intent or pilot request if it catches canonical drift before launch.</span>
+            </label>
+            <div class="workflow-actions">
+              <button class="button primary" type="submit" data-track-cta="waitlist_submit">Request early access</button>
+              <a class="button secondary" href="#workflow" data-track-cta="waitlist_demo">Try the auditor</a>
+            </div>
+            <p class="form-success" id="waitlist-status" role="status" aria-live="polite"></p>
+          </form>
+
+          <div class="handoff-panel reveal" id="handoff-panel" hidden>
+            <p class="eyebrow">Remote handoff</p>
+            <h3>Send a public-safe demo request</h3>
+            <p>Email stays local. The issue body contains role, site count, launch context, plan interest, and pain only.</p>
+            <div class="workflow-actions">
+              <a class="button primary" id="remote-intent-link" href="#" target="_blank" rel="noreferrer">Open GitHub demo request</a>
+              <button class="button secondary" type="button" id="copy-request">Copy request details</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section band" aria-labelledby="resources-title">
+        <div class="shell resources-layout">
+          <div class="section-heading reveal">
+            <p class="eyebrow">SEO asset</p>
+            <h2 id="resources-title">Canonical tag QA checklist</h2>
+            <p>A practical checklist is included for teams searching for canonical drift, rel canonical, sitemap mismatch, and migration QA guidance.</p>
+          </div>
+          <a class="resource-link reveal" href="canonical-drift-qa-checklist.html" data-track-cta="seo_guide">
+            <span>Read the canonical tag QA checklist</span>
+            <span aria-hidden="true">-&gt;</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="faq-title">
+        <div class="shell faq-layout">
+          <div class="section-heading reveal">
+            <p class="eyebrow">FAQ</p>
+            <h2 id="faq-title">Canonical constraints are explicit.</h2>
+          </div>
+          <details class="reveal">
+            <summary>Does it crawl my site?</summary>
+            <p>No. This MVP only analyzes pasted URL, canonical, sitemap, and redirect notes.</p>
+          </details>
+          <details class="reveal">
+            <summary>Does it use Search Console?</summary>
+            <p>No. There is no Search Console, URL Inspection, OAuth, or external API dependency.</p>
+          </details>
+          <details class="reveal">
+            <summary>Does it guarantee Google's selected canonical?</summary>
+            <p>No. Search engines choose canonicals from multiple signals. This is launch QA guidance, not an outcome guarantee.</p>
+          </details>
+          <details class="reveal">
+            <summary>Can I paste private client URLs?</summary>
+            <p>The app is browser-local, but you should still paste only public-safe or anonymized rows.</p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <span>Canonical Drift QA Briefs</span>
+        <a href="sitemap.xml">Sitemap</a>
+      </div>
+    </footer>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>

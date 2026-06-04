@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Canonical Tag QA Checklist | Canonical Drift QA Briefs</title>
+    <meta
+      name="description"
+      content="A practical canonical tag QA checklist for migrations, canonical drift, staging URLs, protocol mismatch, trailing slash rules, sitemap disagreement, and redirect checks."
+    >
+    <link rel="canonical" href="https://ert93333-ops.github.io/canonical-drift-qa-briefs/canonical-drift-qa-checklist.html">
+    <meta property="og:title" content="Canonical tag QA checklist">
+    <meta property="og:description" content="Review canonical tags, sitemap rows, staging URLs, redirects, and final URL alignment before launch.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://ert93333-ops.github.io/canonical-drift-qa-briefs/canonical-drift-qa-checklist.html">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body data-product="Canonical Drift QA Briefs">
+    <header class="site-header" data-header>
+      <div class="shell header-inner">
+        <a class="brand" href="index.html" aria-label="Canonical Drift QA Briefs home">
+          <span class="brand-mark" aria-hidden="true">CD</span>
+          <span>Canonical Drift QA Briefs</span>
+        </a>
+        <nav class="nav" aria-label="Primary navigation">
+          <a href="index.html#workflow">Auditor</a>
+          <a href="index.html#pricing">Pricing</a>
+          <a href="index.html#waitlist">Early access</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="article-hero section">
+        <div class="shell article-layout">
+          <div class="article-copy reveal">
+            <p class="eyebrow">Canonical tag QA checklist</p>
+            <h1>Review canonical drift before publishing or migrating.</h1>
+            <p class="hero-subtitle">
+              Use this checklist to catch missing canonicals, staging URLs,
+              protocol mismatch, trailing slash drift, cross-domain canonicals, sitemap disagreement, and redirect risk.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="index.html#workflow" data-track-cta="checklist_audit">Audit canonical rows</a>
+              <a class="button secondary" href="index.html#waitlist" data-track-cta="checklist_waitlist">Request early access</a>
+            </div>
+          </div>
+          <div class="product-preview reveal" aria-label="Checklist preview">
+            <div class="preview-header">
+              <span class="status-dot"></span>
+              <span>prelaunch canonical review</span>
+            </div>
+            <div class="brief-preview">
+              <p class="brief-label">Checklist focus</p>
+              <strong>Canonical QA is signal alignment.</strong>
+              <p>Review final URLs, canonical tags, sitemap rows, and redirects together before the release goes live.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section band">
+        <div class="shell content-narrow">
+          <article class="guide-block reveal">
+            <h2>1. Capture page and canonical pairs</h2>
+            <ol class="guide-list">
+              <li>Export the final page URL and the rendered canonical URL for each launch template.</li>
+              <li>Check that expected self-canonicals are actually self-referencing.</li>
+              <li>Document every intentional non-self canonical.</li>
+              <li>Remove staging, preview, QA, dev, and localhost canonicals from production rows.</li>
+            </ol>
+          </article>
+
+          <article class="guide-block reveal">
+            <h2>2. Compare protocol, host, path, and slash rules</h2>
+            <ol class="guide-list">
+              <li>Confirm final URLs and canonical targets use HTTPS.</li>
+              <li>Check apex vs www behavior and cross-domain canonicals.</li>
+              <li>Confirm trailing slash rules match redirect behavior.</li>
+              <li>Review query-parameter pages and faceted URLs separately from clean canonical targets.</li>
+            </ol>
+          </article>
+
+          <article class="guide-block reveal">
+            <h2>3. Compare sitemap and canonical rows</h2>
+            <ol class="guide-list">
+              <li>Confirm launch URLs that should be indexed are present in the sitemap.</li>
+              <li>Confirm canonical targets are present when they are meant to be indexable.</li>
+              <li>Remove staging or HTTP URLs from sitemap rows.</li>
+              <li>Retest after CMS, ecommerce, or static build sitemap generation changes.</li>
+            </ol>
+          </article>
+
+          <article class="guide-block reveal">
+            <h2>4. Check redirects and final destinations</h2>
+            <ol class="guide-list">
+              <li>Capture final destination URLs after redirect rules are active.</li>
+              <li>Check migration redirect maps against canonical targets.</li>
+              <li>Avoid canonical tags pointing to URLs that immediately redirect elsewhere.</li>
+              <li>Retest after CDN, host, slash, or lowercase-normalization rules change.</li>
+            </ol>
+          </article>
+
+          <article class="guide-block reveal">
+            <h2>5. Keep the guarantee honest</h2>
+            <ol class="guide-list">
+              <li>Canonicals are signals, not absolute commands.</li>
+              <li>Search engines may select a different canonical if signals conflict.</li>
+              <li>Use this checklist as launch QA, then monitor real indexing data after release.</li>
+            </ol>
+          </article>
+
+          <article class="guide-block reveal">
+            <h2>Copyable canonical QA handoff</h2>
+            <pre class="template-block">Canonical drift QA
+
+Launch context:
+Canonical owner:
+Domain scope:
+Redirect notes:
+
+Rows checked:
+- Page URL count:
+- Missing canonicals:
+- Non-self canonicals:
+- Staging/preview URLs:
+- HTTP/HTTPS mismatch:
+- Trailing slash drift:
+- Cross-domain canonicals:
+
+Sitemap comparison:
+- Sitemap rows checked:
+- Page URLs missing from sitemap:
+- Canonical targets missing from sitemap:
+- Staging/HTTP sitemap rows:
+
+Redirect/final URL:
+- Apex/www behavior:
+- Slash behavior:
+- Query/facet behavior:
+- Final destination captured:
+
+Manual follow-up:
+- Intentional exceptions approved:
+- CMS template fixed:
+- Sitemap regenerated:
+- Post-launch indexing monitored:</pre>
+            <a class="button primary" href="index.html#workflow" data-track-cta="template_to_product">Generate a canonical drift QA brief</a>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <span>Canonical Drift QA Briefs</span>
+        <a href="sitemap.xml">Sitemap</a>
+      </div>
+    </footer>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
